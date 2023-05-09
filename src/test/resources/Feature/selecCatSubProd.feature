@@ -35,6 +35,6 @@ Feature: exitoSelCatSubProd
     And user validate that  products quantites selected to be the same on shopping cart
     And user validate that  products number selected to be the same on shopping cart
 
-  
+  	        
 
    
