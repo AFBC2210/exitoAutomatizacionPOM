@@ -1,24 +1,22 @@
 package exitoPage;
 
-import static org.mockito.ArgumentMatchers.doubleThat;
+
 
 import java.time.Duration;
 import java.util.NoSuchElementException;
 import java.util.concurrent.TimeUnit;
 import java.util.function.Function;
 
-import org.apache.commons.lang3.ArrayUtils;
-import org.htmlunit.corejs.javascript.regexp.SubString;
-import org.htmlunit.javascript.host.dom.Document;
+
 import org.junit.Assert;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
+
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
-import org.openqa.selenium.support.ui.WebDriverWait;
+
 
 import com.google.common.base.CharMatcher;
 
@@ -101,10 +99,10 @@ public class ExitoPageObject {
 	private By localTotalValueProductInterfaceIphone = By
 			.xpath("(((((((((//div[@id='gallery-layout-container']/div)[3])//div)[10])//div)[20])/div)[2])/div/span)");
 	
-	private By localQuantityProductInterfaceIphone = By
+	private By ocalQuantityProductInterfaceIphon = By
 			.xpath("(((((((//div[@id='gallery-layout-container']/div)[3])//div)[10])//div)[53])/div/div)");
 	
-	private By localNumberProductInterfaceIphone = By
+	private By ocalNumberProductInterfaceIphon = By
 			.cssSelector("div[class='exito-header-3-x-minicartQuantity']");
 	
 	
@@ -148,11 +146,9 @@ public class ExitoPageObject {
 		this.driver = driver;
 	}
 
-	public void clickOnMainMenu() throws InterruptedException {
+	public void clickOnMainMenu() {
 
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-
-		// Thread.sleep(5000);
 
 		driver.findElement(optionMenu).isDisplayed();
 
@@ -160,7 +156,7 @@ public class ExitoPageObject {
 
 	}
 
-	public void selectCategory() throws InterruptedException {
+	public void selectCategory() {
 
 		Wait<WebDriver> waitMainMenu = new FluentWait<WebDriver>(driver).withTimeout(Duration.ofSeconds(10))
 				.pollingEvery(Duration.ofSeconds(2)).ignoring(NoSuchElementException.class);
@@ -187,29 +183,15 @@ public class ExitoPageObject {
 			}
 		});
 
-		/*
-		 * espera explicita con expected conditions WebDriverWait ewait = new
-		 * WebDriverWait(driver, Duration.ofSeconds(10));
-		 * ewait.until(ExpectedConditions.elementToBeSelected(category));
-		 */
-
-		// Thread.sleep(10000);
-
-		if (driver.findElement(mainMenu).isDisplayed()) {
+			if (driver.findElement(mainMenu).isDisplayed()) {
 
 			driver.findElement(category).click();
 		}
 
 	}
 
-	public void selectSubCategory() throws InterruptedException {
-		/*
-		 * JavascriptExecutor js = (JavascriptExecutor) driver; WebElement subCategory =
-		 * (WebElement)js.
-		 * executeScript("return document.getElementById('Categorías-nivel3-Iphone')[1]"
-		 * );
-		 */
-
+	public void selectSubCategory(){
+		
 		driver.findElement(category).isDisplayed();
 
 		Wait<WebDriver> waitSubCategory = new FluentWait<WebDriver>(driver).withTimeout(Duration.ofSeconds(60))
@@ -223,8 +205,6 @@ public class ExitoPageObject {
 				return driver.findElement(subcategory);
 			}
 		});
-
-		// Thread.sleep(5000);
 
 		if (driver.findElement(subcategory).isDisplayed()){
 
@@ -292,12 +272,12 @@ public class ExitoPageObject {
 		Assert.assertEquals("OJo !!! comparando resultados", expectedQuantityProductOnShoppingCar,
 				currentQuantityProductOnShoppingCar+".00 un");
 		
-		System.out.println("la prueba paso 12345 yuuupiiiii, cuando empezamos :D !!!!!!!");
+		
 		
 	}
 
 	public void checkShoppingCar() {
-		System.out.println("nos vamos a la interfaz del carrito  de compras");
+		
 		driver.findElement(shoppingCart).click();
 	}
 	

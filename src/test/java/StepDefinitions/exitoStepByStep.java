@@ -31,7 +31,6 @@ public class exitoStepByStep {
 		prefs.put("profile", profile);
 		options.setExperimentalOption("prefs", prefs);
 		
-		//driver = new ChromeDriver ();
 		driver = new ChromeDriver(options);
 		exitoPageObject = new ExitoPageObject(driver);
 		driver.manage().window().maximize();
@@ -40,40 +39,38 @@ public class exitoStepByStep {
 	    }
 
 	@When("user clicks on the main menu")
-	public void user_clicks_on_the_main_menu() throws InterruptedException {
+	public void user_clicks_on_the_main_menu() {
 		
-        exitoPageObject.clickOnMainMenu();
-        System.out.println("paso por el menu");
+        exitoPageObject.clickOnMainMenu();        
 	    
 	}
 
 	@When("user select the category")
-	public void user_select_the_category() throws InterruptedException {
-		System.out.println("paso a seleccionar categoria");
+	public void user_select_the_category() {
+		
 		exitoPageObject.selectCategory();
 		
 	    
 	}
 
 	@When("user select the subcategory")
-	public void user_select_the_subcategory() throws InterruptedException {
+	public void user_select_the_subcategory() {
 	    
 		exitoPageObject.selectSubCategory();
-		System.out.println("paso a seleccionar subcategoria");		
+				
 	    
 	}
 
 	@When("user add different products to shopping cart")
-	public void user_add_different_products_to_shopping_cart() {
+	public void user_add_different_products_to_shopping_cart() {		
 		
-		System.out.println("paso a seleccionar productos");
 		exitoPageObject.addProducts();		
 	    
 	}
 
 	@When("user selects a quantity per product")
 	public void user_selects_a_quantity_per_product() {
-		System.out.println("paso a seleccionar cantidad");
+		
 		exitoPageObject.selectQuantity();		
 	    
 	}
